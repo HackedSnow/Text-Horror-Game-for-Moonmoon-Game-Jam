@@ -18,5 +18,5 @@ class Trader(NonPlayableCharacter):
                       items.Cum(),
                       items.Jug(),
                       items.GoldCrossofMormoon(),
-                      items.EELLSpear(),
+                      items.GauntletoftheChamp(),
                       items.BoneDoll()]
