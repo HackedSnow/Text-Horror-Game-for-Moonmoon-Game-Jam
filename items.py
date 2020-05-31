@@ -16,8 +16,8 @@ class Weapon:
 class CatEffigy(Weapon):
     def __init__(self):
         self.name="Cat Effigy"
-        self.description="A small wooden cat carved from rotting wood."\
-                         "You can see specks of white paint clinging to 'weapon.'"\
+        self.description="A small wooden cat carved from rotting wood. "\
+                         "You can see specks of white paint clinging to 'weapon.' "\
                          "Show this to your foes and watch as they cower in fear."
         self.damage=10
         self.value= 20
@@ -25,7 +25,7 @@ class CatEffigy(Weapon):
 class GoldCrossofMormoon(Weapon):
     def __init__(self):
         self.name="Gold Cross of Mormoon"
-        self.description= "An odd sword with a shungite gem fashioned into the hilt."\
+        self.description= "An odd sword with a shungite gem fashioned into the hilt. "\
                           "Whoever made it has extremely bad taste."
         self.damage=15
         self.value= 100
@@ -33,7 +33,7 @@ class GoldCrossofMormoon(Weapon):
 class EELLSpear(Weapon):
     def __init__(self):
         self.name="EELL Spear"
-        self.description= "A spear used by the elite guard of Lord Jeremiah."\
+        self.description= "A spear used by the elite guard of Lord Jeremiah. "\
                           "It doubles as a fishing rod."
         self.damage=20
         self.value= 250
@@ -41,8 +41,8 @@ class EELLSpear(Weapon):
 class CoomHammer(Weapon):
     def __init__(self):
         self.name="Coom Hammer"
-        self.description= "The hammer used by the Hell-walker."\
-                          "Ghast tears are carved into the metal mass,"\
+        self.description= "The hammer used by the Hell-walker. "\
+                          "Ghast tears are carved into the metal mass, "\
                           "signifying rebirth."
         self.damage=30
         self.value= 150
@@ -50,10 +50,10 @@ class CoomHammer(Weapon):
 class GauntletoftheChamp(Weapon):
     def __init__(self):
         self.name="Gauntlet of the Champ"
-        self.description= "The people bow to the gods."\
+        self.description= "The people bow to the gods. "\
                           "The gods bow to... THE CHAMP."
         self.damage=40
-        self.value= 100        
+        self.value= 250        
 
 class Consumable:
     def __init__ (self):

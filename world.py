@@ -52,8 +52,8 @@ class LocationTile3(MapTile):
       def intro_text(self):
         print ("You find some markings etched onto the chest of a crucified corpse.")
         print("It looks like a map of the Woods.")
-        print ("It provides your location (M)")
-        print ("And something else is marked (?).")
+        print ("Was this used on the death pilgramiges of (M)ormoon?")
+        print ("There is also a (?). What could this signify?")
         print ("""
                |  |  |  |  |  |  |  |  |  | ?|
                |  |xx|xx|xx|  |  |xx|xx|xx|xx|
@@ -73,10 +73,10 @@ class LocationTile2(MapTile):
         super().__init__(x, y)  
 
       def intro_text(self):
-        print ("You found something etched onto a old tombstone.")
-        print("It looks like a map of the Woods.")
-        print ("It provides your location (M).")
-        print ("And something else is marked (?).")
+        print ("You find some scratchings etched onto a crumbling tombstone.")
+        print("It appears to be a map. A curious canvas for sure.")
+        print ("Was this used on the death pilgramiges of (M)ormoon?")
+        print ("There is also a (?). What could this signify?")
         print ("""
                |  |  |  |  |  |  |  |  |  |  |
                |  |xx|xx|xx|  |  |xx|xx|xx|xx|
@@ -99,10 +99,10 @@ class LocationTile(MapTile):
         super().__init__(x, y)  
 
       def intro_text(self):
-        print ("You see an old wooden sign ahead of you.")
-        print("It looks like a map of the Woods.")
-        print ("It provides your location (M).")
-        print ("And something else is marked (?).")
+        print ("You see a crooked wooden sign ahead of you in the process of being taken over by brush.")
+        print("You pull back the moss covering it. It looks like a map of the woods.")
+        print ("Was this used on the death pilgramiges of (M)ormoon?")
+        print ("There is also a (?). What could this signify?")
         print ("""
                |  |  |  |  |  |  |  |  |  | ?|
                |  |xx|xx|xx|  |  |xx|xx|xx|xx|
@@ -132,13 +132,14 @@ class BaldManTile(MapTile):
             
             action_input=input("Action:")  
             if action_input =="Y" or action_input =="y":
-               print("Wonderful, make a note little one...")
+               print("Wonderful! Make a note little one...")
                input(".....")
-               print ("Go south 5,east 4 then south 4 ")
+               print ("You see this trunk I sit upon? Go South 5 lengths, East 4, and finally another 4 South.")
                input(".....")
-               print("You will find a weapon of great power and fear... ")
+               print("You will find a weapon of great power and fear... But for whom? EEEEEEHEHEHEHE!")
                input(".....")
                print ("I will let you have a look at my map. ")
+               print("May the Hell-Walker lead your steps.")
                print("M=MHERE T=Treasure ")
                
                self.Item_claimed = True
@@ -162,7 +163,7 @@ class BaldManTile(MapTile):
                print("Your hp {} ".format(player.hp))
                
             elif action_input =="N" or action_input =="n":
-               print("You refuse the offer and continue on.")
+               print("You refuse the offer of the bald man and continue on.")
             else:
                 print("(INVALID CHOICE) You leave without taking up the offer.")
                
@@ -170,15 +171,16 @@ class BaldManTile(MapTile):
     def intro_text(self):
         if self.Item_claimed:
             return """
-            This is the place where you met that friendly bald man.
-            I wonder where he is now? 
+            This is the place where you met that unnaturally bald man.
+            Where is he now? 
             """
             
         else:
-            print("You see a bald man but he does not attack you.")
-            print("He speaks, 'Hello young one, I can tell you a secret of these dreaded woods.'")
+            print("You see a bald man out of the corner of your eye... but he does not attack you?")
+            print("You would not have seen him if it wasnt for the reflection of the moon radiating off his bald head.")
+            print("He speaks, 'Hello young fledgling, I can tell you a secret of these dreaded woods.'")
             input("     ")
-            print("'If you offer me some 'life'... Not all, mind you... Just enough.'")
+            print("'If you offer me some of your essense... Just a taste!' He cackles.")
             input("     ")
             return """
             Do you accept the dark pact?  yes(Y) or No(N)
@@ -204,11 +206,11 @@ class FindRingTile(MapTile):
                input(".....")
                print("As you fit the ring around your finger...")
                input(".....")
-               print("Your flesh starts to become hard like rock.")
+               print("Your flesh starts to become hard like cock.")
                input(".....")
                print("You panic and attempt to remove it.")
                input(".....")
-               print ("It will not come off, it is cursed!")
+               print ("It won't come off! The twisted markings of the ring write around as if to constrict even more.")
                input(".....")
                print("You are disturbed, but have no choice but to continue.")
                input(".....")
@@ -232,11 +234,12 @@ class FindRingTile(MapTile):
             """
             
         else:
-            print("You see a ring placed on a stone alter.")
+            print("You see an obsidian ring placed on a stone alter. It is covered in eels.")
             input(".....")
-            print("There is a short note beside the ring.")
+            print("There is a relief carved into the altar.")
             input(".....")
-            print("One man's curse is another man's saviour.")
+            print("It tells the story of the banishment to hell of a high brother of Mormoon and their subsequent repentance.")
+            print("The story ends with the brother guarding the door to hell.")
             input(".....")
             print( "You have a strange urge to put on the ring.")
             input(".....")
@@ -273,7 +276,7 @@ class FindHammerTile(MapTile):
                print("Your sanity point {}".format(player.sanity))
                print("")
             elif action_input =="N" or action_input =="n":
-               print("You decide to not take the hammer.")
+               print("You decide to not take the hammer. Pussa Bih.")
             else:
                print("(INVALID CHOICE) You leave without the hammer.")
                
@@ -371,10 +374,10 @@ class FindHealthTile(MapTile):
             """
             
         else:
-            print("You see a dead adventurer on the ground.")
+            print("You see a dead deserter on the ground. He was stabbed from behind.")
             print("There is something in his bag.")
             return """
-            Will you search the dead adventurer? YES(Y) or NO(N)
+            Will you search the dead deserter? YES(Y) or NO(N)
             """
         
         
@@ -382,19 +385,22 @@ class BossTile(MapTile):
     def __init__(self, x, y):
         self.enemy = enemies.boss()
         self.alive_text = """
-                          You see a massive demonic creature with a 
+                          You see a massive corrupted creature with an 
+                          almost entirely receeded hairline and a
                           gigantic cleaver.  
-                          He smiles and speaks... 'Meat for the lady?'
+                          He smiles and speaks... 'Serf meat?'
                           """
                           
         self.dead_text = """
-                         The great abomination falls to the ground
-                         bleeding from every orifice. 
+                         The great abomination falls to the ground,
+                         landing upon its weapon. Bone cracks with
+                         a sickening snap. 
                          It has been a bloody battle. 
                          He reaches his right hand into the air 
                          and with his dying breath he whispers 
-                        'No meat for supper tonight, my lady'. 
-                         The butcher is dead                        
+                         'No meat for supper tonight, Eddy'. 
+                         The Grand EELLer of Mormoon, Lord Jeremiah
+                         is dead.
                          
                          """
                              
@@ -414,59 +420,60 @@ class BossTile(MapTile):
                   format(self.enemy.damage, player.armour,player.hp))
         else:
             player.victory=True 
-            print("You see a dim light on the edge of the woods")
+            print("You see a dim light on the edge of the woods.")
             input(".....")
-            print("You run to the light and the light becomes brighter")
+            print("You run to the light and the light becomes brighter.")
             input(".....")
-            print("As you reach the light, a sense of finality overcomes you")
+            print("As you reach the light, a sense of finality overcomes you.")
             input(".....")
-            print("You wake up")
+            print("You wake up.")
             input(".....")
-            print("You are surrounded by mangled bodies all with contorted faces of horror" )
+            print("You are surrounded by mangled bodies all with contorted faces of horror." )
             print("You can make out four paths.' ")
             input(".....")
-            print ("You break down on the floor knowing you cannot do this again..")
+            print ("You break down on the floor knowing you cannot do this again.")
             input(".....")
-            print("You notice an old man with a pipe sitting in a chair ")
-            print("beside a pile of mangled bodies")
+            print("You notice an old, bald man with a pipe sitting in a chair ")
+            print("beside a pile of... half-eaten bodies?")
             input(".....")
-            print("The old man speaks 'No one truly escapes these woods ")
-            print("without a clear conscious")
+            print("The old man speaks, 'No one truly escapes these woods ")
+            print("without a clear conscious.")
             input(".....")
-            print ("As you begin to object. You start to remember")
+            print ("As you begin to object. You start to remember...")
             input(".....")
-            print ("Something your mind has hid away from you until now " )
+            print ("Something your mind has hid away from you until now. " )
             input(".....")
-            print ("You remember the butcher's daugther lying on the floor in a pool of blood" )
+            print ("You remember the Grand EELLer's daugther lying on the floor in a pool of blood." )
             input(".....")
-            print ("The butcher rushes into the room and stares in horror")
+            print ("The Jeremiah rushes into the room and stares in horror.")
             input(".....")
-            print ("Your hands were around another woman's neck, her eyes drained of life")
+            print ("Your hands were around another woman's neck, her eyes drained of life.")
             input(".....")
-            print ("You remember a struggle with the enraged butcher ")
+            print ("You remember a struggle with Jeremiah... ")
             input(".....")
-            print("which ended with you throwing the butcher into a great cauldron of boiling water")
+            print("which ended with you throwing him into a great cauldron of boiling water.")
             input(".....")
-            print("You remember the endless scream and rambling of the butcher")
-            print("as you force the lid on top of the cauldron preventing his escape")
+            print("You remember the endless screams and pleading of the EELLer")
+            print("as you forced the lid on top of the cauldron preventing his escape.")
             input(".....")
-            print ("Until silence")
+            print ("...")
             input(".....")
-            print ("You start to cry uncontrollably feeling only the deepest of guilt and regret")
+            print ("You start to cry uncontrollably, feeling only the deepest of guilt and regret.")
+            print("Was that real? Did that really happen?")
             input(".....")
-            print ("The old man speaks again ' There, there.. Old Man Kwong will take care of you'")
+            print ("The old man speaks again, but to you, 'More water!'")
             input(".....")
-            print("You look up and suddenly, you are back in your prison cell ")
-            print("before your trip to the Woods of Yrpes")
+            print("You look up, or at least try as water rains down, taking your breath.")
+            print("You gasp for air, but to no avail.")
             input(".....")
-            print("The old man continues 'Congratulations, you have escaped the Woods of Yrpes") 
+            print("The old man looks down on you, 'Welcome back.'") 
             input(".....")
-            print("'Now are you ready to confess, this time ?'")
+            print("'Now, are you ready to confess?'")
             input(".....")
-            print("You nod with approval and readily face your final judgement")
+            print("You nod with approval and readily face your final judgement.")
             input(".....")
-            print("Sometimes redemption can only truly be found in death")
-            print("All is forgiven within the eternal sleep ")
+            print("Sometimes redemption can only truly be found in death.")
+            print("All is forgiven within the eternal sleep.")
             input(".....")
             print(r"""
  
@@ -492,18 +499,36 @@ class BossTile(MapTile):
             print("""
             
              
-            )
-           (_)
-          .-'-.
-          |   |
-          |   |
-          |   |
-          |   |
-        __|   |__   .-.
-     .-'  |   |  `-:   :
-    :     `---'     :-'
-     `-._       _.-'
-         '""""""
+                .   . .//..                                                                      
+       . ((..//..../,*... */##*                                                                     
+     .... ...,,... ,,,,*.,#/...                     .,******,.                                      
+    ../#####(*(#%//(/**./#......                 .,**************.                                  
+    ,###########%###(//.(( *##%/                .,.*****************.                               
+    ./*/##############(/...(/,                 ,,.**********.   .,***, .*.                          
+     ,*./#######%######* .                    *,.********.,*.         %&&&*.                        
+     .(#*################.                   *,,,*********.**         /#(%,                         
+       .(/,/(####(*,.,***                  .******************                                      
+          .*/######(. ,.                      ,***********,,,,,,,,,                                 
+        **.   ........**            ,#%%&&&&&&&&&&&&&&&&&&&&&&&&&&&&%/#*                            
+      */.***,,,,,,**//((           *&&((&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*%&%*                          
+      .(##%%%###%####(.            #&&((&&&&&&&&&&&&&&&&&%#######%%&&/%&&*                          
+         ,%##########(.            .#&&&&%*    ....,..   .,*****,,,..                       ..,.    
+          ######%#####,             .....,.,,.,.,***,..... ,,..,,,..    ...                  ,*.    
+          /##########%/            ,*********,,.,,,.,,   .,,,*#%(. *.,(  ,%&*                ((,    
+          (#####%#%######,       ,*,,,,***,,,,,,//.   ,*  ,&*&&&(.   (    //.                ,*.    
+         ./###%%###((//*,,     .,,***,*,,**,.*#&&(.      ..,**,**,,,***////(*                ((*    
+        //,...,***********    ,*,(.%%%%#(/*,,,,,,,,,,,,,,**//(#%%%%(/,.,*****,               (#*    
+      ,*************,,.      .,*.. ***,,.,**********,,,,,,***********,,..,,*,    **.   .* .,,,      
+      .,,...     .,,,,..,**,..,/*,.***,,**,,,,,,,,,,,,,,,,,,,,,,,,,,....,,,,,      ,*##*/.          
+                  .,*,.....*(%&&%,*******,,,,,,,,,,,,,,,,,,,,,***************.  .,,,,/%#,           
+                    ......./&%#*. ********************************************.     .#              
+                    ,,...........*#####(((/*,,,,,,****************************                      
+                    .#%#,..,,,..........,,,,*/(#/(##,,**.,*********,  *******                       
+                 .,/(/,.... .......................,(#/,**,,,,,,,,,,,,,,,.                          
+                          ...........................#(/,.,****,,,,,,,,,.                           
+                          ,(,........................((/,.,*********,,,,.                           
+                          ,*,,,*/*((*/#(((/*,,,,....(#/..,****,,**********.                         
+                              ..,******,,,,,**************************,,           
             
             """)
             input("Press any button to escape")
@@ -511,36 +536,36 @@ class BossTile(MapTile):
         
 class WestTile(MapTile):
     def intro_text(self):
-        print ("You see a large cage hanging from a dead tree")
-        print ("There seems to be a corpse inside with a sign")
+        print ("You see a large cage hanging from a dead tree.")
+        print ("There seems to be a corpse inside with a sign.")
         return """
-        The Sign reads : Go West, my honey flower  
+        The Sign reads : Go West, my honey flower.  
         """  
 
 class EastTile(MapTile):
     def intro_text(self):
-        print ("You see a large cage hanging from a dead tree")
-        print ("There seems to be a corpse inside with a sign")
+        print ("You see a large cage hanging from a dead tree.")
+        print ("There seems to be a corpse inside with a sign.")
         return """
-        The Sign reads : Go East, my sweet meat
+        The Sign reads : Go East, my sweet meat.
         """          
         
         
 class SouthTile(MapTile):
     def intro_text(self):
-        print ("You see a large cage hanging from a dead tree")
-        print ("There seems to be a corpse inside with a sign")
+        print ("You see a large cage hanging from a dead tree.")
+        print ("There seems to be a corpse inside with a sign.")
         return """
-        The Sign reads : Go South, my butter cups
+        The Sign reads : Go South, my butter cup.
         """          
         
         
 class NorthTile(MapTile):
     def intro_text(self):
-        print ("You see a large cage hanging from a dead tree")
-        print ("There seems to be a corpse inside with a sign")
+        print ("You see a large cage hanging from a dead tree.")
+        print ("There seems to be a corpse inside with a sign.")
         return """
-        The Sign reads : Go North, my sugar plums  
+        The Sign reads : Go North, my sugar plum.  
         """        
 
         
@@ -562,13 +587,13 @@ class SleepTile(MapTile):
     def intro_text(self):
         if self.powerup_claimed:
             return """
-            You return to the church but you only see rubbles..
-            Is there no safe space in this dreaded woods ?             
+            You return to the church, but you only see rubble.
+            Are even the gods powerless in the face of this evil?    
             """
             
         else:
             return """
-            You find an abandon church, it has a holy aura around it.
+            You find an abandon Mormoon church. It has a holy aura around it.
             You decide to rest your exhausted body and find a 
             temperamental solace within this hell...             
                         
@@ -602,7 +627,7 @@ class MadTile(MapTile):
        
             return """
             You faintly remember a story about a mother's love for her child.  
-            It terrifies you to the core.. 
+            It terrifies you to the core... 
              """
         else:
             r=random.random()
@@ -611,25 +636,22 @@ class MadTile(MapTile):
                 print("You see a mother with two daughters.") 
                 print("One in red and the other in blue.")
                 input(".....")
-                print("The mother first hugs the one in 'blue' with a sad sigh")
+                print("The mother first hugs the one in 'blue' with a sad sigh.")
                 input(".....")
-                print("She then moves towards the one in 'red' and proceeds to strangle her")
+                print("She then moves towards the one in 'red' and proceeds to strangle her.")
                 input(".....")
                 print("As red's frantic body ceases of movement and her life becomes no more ")
                 input(".....")
-                print("the mother then stares wildly  at 'blue 'and moves towards her next ")
+                print("the mother then stares wildly  at 'blue 'and moves towards her next. ")
                 input(".....")
-                print("With great excitement she embraces the child")
+                print("With great excitement she embraces the child.")
                 input(".....")
-                print("She whispers in the sweet child's ear ") 
+                print("She whispers in the sweet child's ear. ") 
                 input(".....")
-                print("'Now, i can love you more'")
+                print("'Now, i can love you more.'")
                 input(".....")
                 return """  """
-                
-                             
-                
-                
+
             
             else :
                 return """ 
@@ -666,23 +688,23 @@ class MadTile2 (MapTile):
         else:
             r=random.random()
             if r< 1.00:
-                print("You see a man full of glee stepping up on a chair")
-                print("and puts a noose around his neck")
+                print("You see a man full of glee stepping up onto a chair.")
+                print("He puts a noose around his neck.")
                 input(".....")
-                print("He then jumps off the chair and hangs in the air for a while")
+                print("He then jumps off the chair and hangs in the air for a while.")
                 input(".....")
-                print("Suddenly he starts to cry uncontrollably")
+                print("Suddenly he starts to cry uncontrollably.")
                 input(".....")
-                print("You start to notice your throat begins to tighten ")
+                print("You start to notice your throat begining to tighten. ")
                 input(".....")
-                print("You struggle for breath frantically grasping at your throat")
-                print("Attempting to tear away something that is not there.")
+                print("You struggle for breath frantically grasping at your throat,")
+                print("attempting to tear away something that is not there.")
                 input(".....")
-                print("As you fall into unconsciousness")
+                print("As you fall into unconsciousness...")
                 input(".....")
                 print("You hear the man rambling angrily at you. ")
-                print("Even though it is mostly incoherent")                
-                print("It seems you have taken something precious from him")
+                print("Even though it is mostly incoherent.")                
+                print("It seems you have taken something precious from him.")
                 input("")
                 return """ 
                  
@@ -717,7 +739,7 @@ class MadTile3 (MapTile):
         
         if self.dream_claimed:  
             return """
-             Did you come here to escape from the horror or to face it ?  
+             Did you come here to escape from the horror or to face it?  
              
        
                 """
@@ -725,18 +747,18 @@ class MadTile3 (MapTile):
         else:
             r=random.random()
             if r< 1.0:
-                print("You see the light at the end of the tunnel")
+                print("You see the light at the end of the tunnel.")
                 input(".....")
-                print("Your heart skips a beat as you run towards the light")
+                print("Your heart skips a beat as you run towards the light.")
                 input(".....")
-                print ("As you reach the light") 
+                print ("As you reach the light...") 
                 input(".....")
-                print ("You wake up")
+                print ("You wake up.")
                 input(".....")
-                print("You are surrounded by mangled bodies all with contorted faces of horror" )
+                print("You are surrounded by mangled bodies all with contorted faces of horror." )
                 print("You can make out four paths.' ")
                 input(".....")
-                print ("You wake up..Again")
+                print ("You wake up... again.")
                 return """
                            """
             else :
@@ -767,25 +789,25 @@ class MadTile4 (MapTile):
         if self.dream_claimed:
             return """
              This place reminds you of a giant pot of meaty stew.     
-             A noisy wailing meaty stew.. 
+             A noisy wailing meaty stew... 
              """
              
         else:
             r=random.random()
             if r< 1.0:
-                print("You see 12 men in rags in a giant pot")
+                print("You see 12 men in rags in a giant pot...")
                 input(".....")
-                print("Scambling over each other to get out")
+                print("Scambling over each other to get out...")
                 input(".....")
-                print("But never succeeding and instead falling to the bottom")
+                print("But never succeeding and instead falling to the bottom.")
                 input(".....")
-                print("They repeat the cycle until their broken bodies can no longer")
+                print("They repeat the cycle until their broken bodies can no longer.")
                 input(".....")
-                print("You notice a 13th man surrounded by bones gnarling on a human leg")
+                print("You notice a 13th man surrounded by bones gnarling on a human leg.")
                 input(".....")
-                print("He looks at you with a menacing smile")
+                print("He looks at you with a menacing smile.")
                 input(".....")
-                print("With a crackling voice he mutters 'I am complete'")
+                print("With a crackling voice he mutters, 'EEEEEEEELLLLLLLL.'")
                 input(".....")
                 return """
                 
@@ -821,29 +843,29 @@ class MadTile5 (MapTile):
         if self.dream_claimed:
             
             return """
-             Somethings are best left unknown
+             Somethings are best left unknown.
              You quickly move away from this cursed place
-             before your remember something you regret..             
+             before your remember something you regret...             
              """
              
         else:
             r=random.random()
             if r< 1.0:
-                print ("You see a book with a cover that displays a contorted demonic face")
+                print ("You see a book with a cover that displays a contorted demonic face.")
                 input(".....")
-                print("It is both grotesque yet strangely alluring")
+                print("It is both grotesque yet strangely alluring.")
                 input(".....")
-                print("You can not resist this strange allure and open the book")
+                print("You can not resist this strange allure and open the book.")
                 input(".....")
-                print("You pry open its heavy cover trembling with both fear and delight")
+                print("You pry open its heavy cover, trembling with both fear and delight.")
                 input(".....")
-                print("In an instant, your mind is consumed with an indescribable dark ecstasy")
+                print("In an instant, your mind is consumed with an indescribable dark ecstasy.")
                 input(".....")
-                print("Deeper and deeper you fall into the abyss, time becomes meaningless")
+                print("Deeper and deeper you fall into the abyss, time becomes meaningless.")
                 input(".....")
-                print("Yet, you continue until you notice a picture of someone being eaten by a book")
+                print("Yet, you continue until you notice a picture of someone being eaten by a book.")
                 input(".....")
-                print("You panic and attempt to snap from your feverish dream")
+                print("You panic and attempt to snap from your feverish dream.")
                 input(".....")
                 print("But alas, it is too late, you cannot move, you cannot scream...")
                 input(".....")
@@ -892,21 +914,21 @@ class MadTile6 (MapTile):
         else:
             r=random.random()
             if r< 1.0:
-                print("You see a woman advancing towards you with a Knife")
+                print("You see a woman advancing towards you with a Knife.")
                 input(".....")
-                print("You prepare for combat but before you can react")
+                print("You prepare for combat but before you can react...")
                 input(".....")  
-                print("She plunged the knife into her belly")
+                print("She plunges the knife into her belly.")
                 input(".....")   
-                print("With great struggle she begins to reach inside her body")
+                print("With great struggle she begins to reach inside her body.")
                 input(".....")
-                print("She begins to snap pieces of her ribs and place them on the floor")
+                print("She begins to snap pieces of her ribs and place them on the floor.")
                 input(".....")
-                print("Sobbing and wailing with each crack of her bones")
+                print("Sobbing and wailing with each crack of her bones...")
                 input(".....")
-                print("Until her body could no longer support her")
+                print("Until her body could no longer support her.")
                 input(".....")
-                print("She collapses with exhaustion and with frantic breathes she whispers")
+                print("She collapses with exhaustion and with frantic breathes she whispers...")
                 input(".....")
                 print("My loss is your gain")
                 input(".....")
@@ -944,8 +966,8 @@ class MadTile7 (MapTile):
         if self.dream_claimed:
             
             return """
-             Why do you return to a place of dead memories ?
-             Do you enjoy being tormented by the ghost of the past ?             
+             Why do you return to a place of dead memories?
+             Do you enjoy being tormented by the ghosts of the past?             
        
              """
         else:
@@ -953,13 +975,13 @@ class MadTile7 (MapTile):
             if r< 0.5:
                 return """
                 You have been here for much too long.
-                Your sanity is in ruins, you need to escape soon!!
+                Your sanity is in ruins, you need to escape soon!
                 
                 """
             else :
                 return """
                 Your minds starts to crack. 
-                You only see your own damnation
+                You only see your own damnation.
                 
                 """         
 
@@ -968,7 +990,7 @@ class MadTile7 (MapTile):
 class StartTile(MapTile):
     def intro_text(self):
         
-        print("You are surrounded by mangled bodies all with contorted faces of horror")
+        print("You are surrounded by mangled bodies all with contorted faces of horror.")
         print("You can make out four paths.")
    
         return """        
@@ -985,7 +1007,7 @@ class EnemyTile(MapTile):
             self.enemy = enemies.BaldMan()
             self.alive_text =r"""
                                You hear a shout in the darkness.  
-                               'More rags for the bald man !!' 
+                               'More cum for the bald man!' 
                                                                                 
                                                       
                                                       """
@@ -1000,7 +1022,7 @@ class EnemyTile(MapTile):
             self.enemy = enemies.GumSpider()
             self.alive_text = r"""  
                               A gum spider wants to play with you 
-                              and your intestines !! 
+                              and your insides!
                                                         
    
           
@@ -1010,20 +1032,20 @@ class EnemyTile(MapTile):
             self.dead_text = """ 
             
                               A splattered body of a gum spider
-                              rots on the ground
+                              rots on the ground.
                                                      """
         elif r < 0.85:
             self.enemy = enemies.CorruptedGnome()
             self.alive_text = r"""
                               A monster of unimaginable horror arrives.
-                              Prepare for combat !!  
+                              Prepare for combat!  
                               
          
                                 """ 
                                
             self.dead_text = """
                               The abomination has been defeated but
-                              what a mess it has left behind
+                              what a mess it has left behind.
                               
                                          """                  
         else:
@@ -1036,7 +1058,7 @@ class EnemyTile(MapTile):
                                                         """                       
             self.dead_text = """
             
-                             The Defeated cum beast can now find   
+                             The defeated cum colossus can now find   
                              peace in these dreadful woods.
                                                     """
 
@@ -1119,7 +1141,13 @@ class TraderTile(MapTile):
 
     def trade(self, buyer, seller):
         for i, item in enumerate(seller.inventory, 1):
-            print("{}. {} - {} Bones".format(i, item.name, item.value))
+            tempstring = "{}. {} - {} Bones".format(i, item.name, item.value)
+            try:
+              tempstring += "   " + item.description
+            except:
+              pass
+            print(tempstring)
+            #print("{}. {} - {} Bones".format(i, item.name, item.value))
         while True:
             user_input = input("Choose an item or press Q to exit: ")
             if user_input in ['Q', 'q']:
@@ -1138,7 +1166,7 @@ class TraderTile(MapTile):
 
     def swap(self, seller, buyer, item):
         if item.value > buyer.gold:
-            print("That's too expensive")
+            print("That's too expensive.")
             return
         seller.inventory.remove(item)
         buyer.inventory.append(item)
@@ -1151,7 +1179,7 @@ class TraderTile(MapTile):
         return """
         A shadowy figure cloaked in black stands before you
         He desires your bones and will trade for them. 
-        He really likes bones..        
+        He really likes bones...        
         """
 
 world_dsl = """

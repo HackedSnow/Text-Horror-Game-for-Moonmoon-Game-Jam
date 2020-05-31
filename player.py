@@ -42,8 +42,14 @@ class Player:
      
     def print_inventory(self):
         print("Inventory/Stats:")
-        for item in self.inventory: 
-            print("*"+ str(item))
+        for item in self.inventory:
+            tempstring = "*"+ str(item)
+            try:
+              tempstring += '  ' + item.description
+            except:
+              pass
+            #print("*"+ str(item) + '  ' + item.description)
+            print(tempstring)
         print("Bones: {}".format(self.gold))
         print("Experience:{}".format(self.exp))
         print("Hp:{}".format(self.hp))
@@ -86,7 +92,7 @@ class Player:
         print("Choose an item to equip: ")
         for i, item in enumerate(Weapons, 1):
             
-            print("{}. {}".format(i, item))
+            print("{}. {}".format(i, item) + item.description)
 
         valid = False
         while not valid:
